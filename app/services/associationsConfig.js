@@ -1,8 +1,9 @@
 const associationsConfig = {
     relation: {
+      // put here your differents associations
       posts: {
-        column: "categories_id",
-        fk: "categories.id",
+        fk: "categories_id",
+        column: "categories.id",
         tableAssociation: "categories"
       }
     },

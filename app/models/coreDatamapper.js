@@ -8,9 +8,7 @@ module.exports = {
     let joinString = "";
 
     if (params?.relation) {
-      console.log("passs");
-
-      joinString = `INNER JOIN ${params.relation.tableAssociation} ON ${params.relation.fk} = ${params.relation.column}`;
+      joinString = `INNER JOIN ${params.relation.tableAssociation} ON ${params.relation.column} = ${params.relation.fk}`;
 
     }
 
