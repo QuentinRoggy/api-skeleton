@@ -1,0 +1,31 @@
+{
+  "name": "api-skeleton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuentinRoggy/api-skeleton.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QuentinRoggy/api-skeleton/issues"
+  },
+  "homepage": "https://github.com/QuentinRoggy/api-skeleton#readme",
+  "dependencies": {
+    "bunyan": "^1.8.15",
+    "cors": "^2.8.5",
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "logger": "^0.0.1",
+    "nodemon": "^2.0.19",
+    "pg": "^8.8.0"
+  }
+}
