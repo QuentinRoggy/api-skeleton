@@ -74,7 +74,7 @@ use these methods for the different kind of routes :
 
 If you have some association between table, you need to explain it at the app.
 
-Its pretty simple, into de services folder open the associationsConfig files.
+Its pretty simple, into de helpers folder open the paramsConfigurator.js files.
 
 You find an object that contain a key "relation". This is where you have to config relation.
 
@@ -82,12 +82,13 @@ Ex: if you have a "posts" relation countaining foreign key on categories relatio
 
 ```javascript
 relation: {
-      posts: {
-        column: "categories_id",
-        fk: "categories.id",
-        tableAssociation: "categories"
-      }
-    },
+    // put here your differents associations
+    posts: {
+      fk: "categories_id",
+      tableAssociation: "categories",
+      column: "categories.id"
+    }
+  },
 ```
 
 ## start server

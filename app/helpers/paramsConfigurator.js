@@ -3,8 +3,8 @@ const paramsConfigurator = {
     // put here your differents associations
     posts: {
       fk: "categories_id",
-      column: "categories.id",
-      tableAssociation: "categories"
+      tableAssociation: "categories",
+      column: "categories.id"
     }
   },
 
