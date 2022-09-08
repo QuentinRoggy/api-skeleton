@@ -1,24 +1,30 @@
 const coreDatamapper = require("../models/coreDatamapper");
-const pathChecker = require("../services/pathChecker");
-const associationsConfig = require("../services/associationsConfig");
+const paramsConfigurator = require("../helpers/paramsConfigurator");
 
 const coreController = {
   async getAll(req, res) {
+    const urlParams = {url: req.url};
 
-    const tableName = pathChecker.checkUrl(req.url);
-    
-    let queryParams = {
-      tableName
-    };
-
-    const relationFound = associationsConfig.associationChecker(tableName);
-
-    queryParams.relation = relationFound;
+    const queryParams = paramsConfigurator.createParams(urlParams);
     
     const results = await coreDatamapper.findAll(queryParams);
 
-
     res.json(results);
+  },
+
+  async getOneByPk(req, res) {
+    const idToFind = parseInt(req.params.id);
+
+    const urlParams = {
+      url: req.url,
+      id: idToFind
+    };
+
+    const queryParams = paramsConfigurator.createParams(urlParams);
+
+    const result = await coreDatamapper.findByPk(queryParams);
+
+    res.json(result);
   }
 };
 

@@ -1,0 +1,4 @@
+%syntax-version=1.0.0
+%project=api-skeleton
+
+init 2022-04-22T09:46:08Z Quentin Roggy <quentin.roggy@gmail.com> # initialisation de la bdd
