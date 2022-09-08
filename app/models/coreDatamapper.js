@@ -1,20 +1,11 @@
 const client = require("../config/db");
+const queryConstructor = require("../helpers/queryConstructor");
 
 module.exports = {
 
   async findAll(params) {
 
-    console.log(params);
-
-    let queryString = `SELECT * FROM ${params.tableName} `;
-    let joinString = "";
-
-    if (params?.association) {
-      joinString = `INNER JOIN ${params.association.tableAssociation} ON ${params.association.column} = ${params.association.fk}`;
-
-    }
-
-    queryString += joinString + ";";
+    const queryString = queryConstructor.selectQuery(params);
 
     const result = await client.query(queryString);
 
@@ -22,15 +13,10 @@ module.exports = {
   },
 
   async findByPk(params) {
-    let queryString = `SELECT * FROM ${params.tableName} `;
-    let joinString = "";
 
-    if (params?.association) {
-      joinString = `INNER JOIN ${params.association.tableAssociation} ON ${params.association.column} = ${params.association.fk}`;
+    const queryString = queryConstructor.selectQuery(params);
 
-    }
-    
-    queryString += joinString + ` WHERE ${params.tableName}.id = ${params.id} ;`;
+    console.log(queryString);
 
     const result = await client.query(queryString);
 
