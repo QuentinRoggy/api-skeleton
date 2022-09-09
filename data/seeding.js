@@ -126,14 +126,17 @@
     for (let i = 0; i < nbCities; i += 1) {
         let name = faker.address.city();
         // eslint-disable-next-line no-loop-func
+        
         while (cities.find((city) => city.name === name)) {
             name = faker.address.city();
+            // debug(name);
         }
 
         let postalCode = faker.address.zipCode();
         // eslint-disable-next-line no-loop-func
         while (cities.find((city) => city.postal_code === postalCode)) {
             postalCode = faker.address.zipCode();
+            
         }
         const city = {
             name,
@@ -142,6 +145,9 @@
         };
         cities.push(city);
     }
+
+    debug(cities);
+
     return cities;
 }
  

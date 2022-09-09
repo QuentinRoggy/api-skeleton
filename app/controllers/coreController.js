@@ -25,6 +25,21 @@ const coreController = {
     const result = await coreDatamapper.findByPk(queryParams);
 
     res.json(result);
+  },
+
+  async delete(req, res) {
+    const idToDelete = parseInt(req.params.id);
+
+    const urlParams = {
+      url: req.url,
+      id: idToDelete
+    };
+
+    const queryParams = paramsConfigurator.createParams(urlParams);
+
+    await coreDatamapper.delete(queryParams);
+
+    res.json({message: `l'Id ${idToDelete} de la table ${queryParams.tableName} a bien été supprimé.`});
   }
 };
 

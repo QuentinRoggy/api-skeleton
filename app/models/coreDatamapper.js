@@ -16,11 +16,19 @@ module.exports = {
 
     const queryString = queryConstructor.selectQuery(params);
 
-    console.log(queryString);
-
-    const result = await client.query(queryString);
+    const result = await client.query(queryString, [params.id]);
 
     return result.rows;
+  },
+
+  async delete(params) {
+
+    const queryString = queryConstructor.deleteQuery(params);
+
+    await client.query(queryString, [params.id]);
+
+    return;
   }
+ 
 
 }

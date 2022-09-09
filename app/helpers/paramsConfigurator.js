@@ -1,22 +1,33 @@
 const paramsConfigurator = {
   relation: {
     // put here your differents associations
-    posts: {
-      fk: "categories_id",
-      tableAssociation: "categories",
-      column: "categories.id"
-    }
+    restaurant: [
+      {
+        fk: "manager_id",
+        tableAssociation: "manager",
+        column: "manager.id"
+      },
+      {
+        fk: "city_id",
+        tableAssociation: "city",
+        column: "city.id"
+      }
+    ]
+    
   },
 
   createParams(paramsUrl) {
 
     const urlSplitted = paramsUrl.url.split("/");
     const tableName = urlSplitted[1];
-    let association;
+    let association = [];
 
     Object.entries(paramsConfigurator.relation).forEach(([param, value]) => {
       if (param === tableName) {
-        association =  value;
+        for (const entries of value) {
+          association.push(entries);
+        }
+        
       }
     });
 
