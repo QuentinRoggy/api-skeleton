@@ -13,8 +13,13 @@ router.get("/manager", controllerHandler(coreController.getAll));
 router.get("/restaurant/:id", controllerHandler(coreController.getOneByPk));
 router.get("/manager/:id", controllerHandler(coreController.getOneByPk));
 
+router.post("/restaurant/", controllerHandler(coreController.create));
+
+router.patch("/restaurant/:id", controllerHandler(coreController.update));
 
 router.delete("/restaurant/:id", controllerHandler(coreController.delete));
+router.delete("/manager/:id", controllerHandler(coreController.delete));
+
 
 router.use(()=>{
   throw new ApiError("API Route nod found", { statusCode: 404 });

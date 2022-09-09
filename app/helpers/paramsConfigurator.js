@@ -40,6 +40,10 @@ const paramsConfigurator = {
     params.id = paramsUrl.id;
    }
 
+   if (paramsUrl?.content) {
+    params.body = paramsUrl.content
+   }
+
     return params;
   }
 };

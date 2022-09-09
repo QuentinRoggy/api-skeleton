@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "DEBUG='controller, query, datamapper' nodemon index.js",
     "resetDB": "sqitch revert -y; sqitch deploy; DEBUG=* node ./data/seeding.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
