@@ -13,7 +13,6 @@ const paramsConfigurator = {
         column: "city.id"
       }
     ]
-    
   },
 
   createParams(paramsUrl) {
